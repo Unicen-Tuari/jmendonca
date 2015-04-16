@@ -1,1 +1,2 @@
 # jmendonca
+haber acomodado los errores que habia en la tabla dentro de aplicacion.html
