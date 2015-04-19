@@ -4,20 +4,29 @@ body{
   background-repeat: no-repeat;
   background-size: cover 100%;
 }
+
 footer{ 
 background-color: #8A0ADF;
+opacity: 0.6;
 }
 article{
 background-color: white;
+opacity: 0.7;
 }
 section{
 background-color: white;
+opacity: 0.7;
 }
 table{
 background-color: white;
+opacity: 0.8;
 }
 /*menu css3*/
 nav{
+	width: 400px;
+    height: 40;
+    margin-bottom: 40px;
+    padding-left: 40px;
     /*Bordes redondeados*/
     -webkit-border-radius:10px;/*Para chrome y Safari*/
     -moz-border-radius:10px;/*Para Firefox*/
@@ -29,8 +38,9 @@ nav{
     background-image: -o-linear-gradient(top, #FFF, #CCC);/*Para Opera*/
     background-image: linear-gradient(top, #FFF, #CCC);/*El estandar por defecto*/
     overflow:hidden;
-    padding:10px;
-    width:950px;
+}
+h1{
+    padding-left: 25px;
 }
 nav ul{
     list-style:none;
