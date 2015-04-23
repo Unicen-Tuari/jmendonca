@@ -8,14 +8,20 @@ body{
 footer{ 
 background-color: #8A0ADF;
 opacity: 0.6;
+font-family:times;
+font-size:14px;
 }
 article{
 background-color: white;
 opacity: 0.7;
+font-family:sans-serif;
+font-size:15px;
 }
 section{
 background-color: white;
 opacity: 0.7;
+font-family:sans-serif;
+font-size:15px;
 }
 table{
 background-color: white;
