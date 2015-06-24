@@ -1,7 +1,7 @@
 
 function enviarPost(){
   var numero = 34;
-  var informacion = '{"nombre":"Dardo"}';
+  var informacion = '{"nombre":"juanma"}';
   var info = {
     "group": numero,
     "thing": informacion
