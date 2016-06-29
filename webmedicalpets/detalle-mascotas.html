@@ -99,24 +99,7 @@
 </div>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    function restfull(){
-        $.ajax({
-          url:"http://web-unicen.herokuapp.com/api/html?",
-          method:"GET",
-          dataType:"html",
-          success: function(data){
-            $("#use-ajax").html(data);//parcial render
-          },
-          error: function(){
-            $("#use-ajax").html("<h1>Error - Request Failed!</h1>");
-          }
-        });
-        $("#use-ajax").html("<h1>Loading...</h1>");
-        //alert("Hola Mundo!");
-        event.preventDefault();
-    };
-</script>
+<script type="text/javascript" src="js/comportamiento.js"></script>
 
 </body>
 </html>
