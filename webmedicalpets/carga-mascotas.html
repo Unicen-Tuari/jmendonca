@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebMedicalPets</title>
+  <!--<link href="css/reset.css" rel="stylesheet" type="text/css">-->
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+<div class="row">
+
+      <!-- Barra de navegacion Boostrap -->
+      <nav class="navbar navbar-fixed-top navbar-default ">
+        <div class="container">
+          <div class="logo">
+            <img class="imglogo" src="images/logo.gif" alt="WebMedicalPets" width="325" height="100">
+          </div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button> <!-- boton para desplegar menu en dispositivos chicos -->
+
+
+
+
+
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Inicio</a></li>
+              <li><a href="mascotas.html"><i class="fa fa-paw" aria-hidden="true"></i>&nbsp; Mascotas</a></li>
+              <li><a href="#"><i class="fa fa-medkit" aria-hidden="true"></i>&nbsp; Medicamentos</a></li>
+              <li><a href="contacto.html"><i class="fa fa-wpforms" aria-hidden="true"></i>&nbsp;Contáctanos</a></li>
+              <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>
+            </ul>
+          </div><!-- /.nav-collapse -->
+        </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+</div>
+<div class="row" style="padding-top:70px;">
+
+</div>
+  <div class="container">
+    <div class="row" style="padding-top:50px;">
+          <center>
+            <table class="agregarMascota">
+                              <caption>carga tu mascota aqui:</caption>
+                              <thead>
+                                <tr>
+                                  <th>Mascota</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Nombre:</td>
+                                  <td> <input id="nombre" value="" type="text" name=""> </td>
+                                </tr>
+                                
+                                <tr>
+                                  <td>Raza:</td>
+                                  <td> <input id="raza" value="" type="text" name=""> </td>
+                                </tr>
+
+                                <tr>
+                                  <td>Edad:</td>
+                                  <td> <input id="edad" value="" type="text" name=""> </td>
+                                </tr>
+
+                                <tr>
+                                  <td>Sexo:</td>
+                                  <td> <input id="sexo" value="" type="text" name=""> </td>
+                                </tr>
+                              </tbody>
+                            </table>
+          </center>
+                            
+        </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <button id="btnEnviarMensaje" class="btn btn-default">Cargar</button>
+      <button id="btnEliminarMensaje" class="btn btn-default">Eliminar</button>
+    </div>
+  </div>
+
+  </div>
+   <div class="container">
+    <div class="row">
+      <div id="resultado">
+        
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <footer>
+        <div class="footer">
+          copyright&copy;2016.design by juanma mendonça
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+
+              $("#btnEnviarMensaje").on("click",function(){               
+                var nombre = $('#nombre').val();
+                var raza = $('#raza').val();
+                var edad = $('#edad').val();
+                var sexo = $('#sexo').val();
+                var data = { // Objeto JSON con la informacion del formulario
+                  nombre: nombre,
+                  raza: raza,
+                  edad: edad,
+                  sexo: sexo,
+                }
+                $.ajax({
+                      method: "POST",
+                      dataType: "JSON",
+                      data: JSON.stringify(data),
+                      url: "http://web-unicen.herokuapp.com/api/create",
+                      contentType: "application/json; charset=utf-8",
+                      success: function(datas){
+                        alert("El mensaje ha sido enviado con exito.");                        
+                        var string = "<div class='col-md-7'><table id='tablares' class='table'><tr><td>Nombre:</td><td>"+data.nombre+"</td></tr><tr><td>Raza:</td><td>"+data.raza+"</td></tr><tr><td>Edad:</td><td>"+data.edad+"</td></tr><tr><td>Sexo:</td><td>"+data.sexo+"</td></tr></table></div>";
+                        document.getElementById('resultado').innerHTML = string;
+                      },
+                        error: function(){
+                        alert("Hubo un error en la red.");
+                      }
+                    });
+                
+              });
+
+
+              $("#btnEliminarMensaje").on("click",function(){   
+              
+
+               try {
+
+               var table = document.getElementById('tablares');
+
+               var rowCount = table.rows.length;
+
+ 
+
+               for(var i=0; i<rowCount; i++) {
+
+                    var row = table.rows[i];
+
+                    var chkbox = row.cells[0].childNodes[0];
+
+                    if(null != chkbox && true == chkbox.checked) {
+
+                         table.deleteRow(i);
+
+                         rowCount--;
+
+                         i--;
+
+                    }
+
+               }
+
+               }catch(e) {
+
+                    alert(e);
+
+               }
+
+          
+              });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
