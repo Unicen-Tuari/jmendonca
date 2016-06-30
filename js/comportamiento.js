@@ -1,5 +1,7 @@
 $(document).ready(function(){
-  inicio = 'inicio'
+  inicio = 'inicio';
+  mascotas = 'mascotas';
+  contacto = 'contacto';
 
   /* La funcion que cargara la pagina segun la seccion */
   function cargarSeccion(seccion){
@@ -17,6 +19,28 @@ $(document).ready(function(){
   };
 
   cargarSeccion(inicio);
+
+  $('#inicio').on('click', function(event){
+    event.preventDefault();
+    $(".nav").find(".active").removeClass("active");
+    $(this).addClass("active");
+    cargarSeccion(inicio);
+  });
+
+  $('#mascotas').on('click', function(event){
+    event.preventDefault();
+    $(".nav").find(".active").removeClass("active");
+    $(this).addClass("active");
+    cargarSeccion(mascotas);
+  });
+
+  $('#contacto').on('click', function(event){
+    event.preventDefault();
+    $(".nav").find(".active").removeClass("active");
+    $(this).addClass("active");
+    cargarSeccion(contacto);
+  });
+
 
 });
 
