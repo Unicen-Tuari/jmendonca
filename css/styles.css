@@ -9,6 +9,7 @@ font-size: 100%;
 font-family: inherit;
 vertical-align: baseline;
 overflow-x: hidden; /* oculta el scroll en x*/
+padding-top: 60px;   /* para que el footer no se oculte tras el nav*/
 }
 
 

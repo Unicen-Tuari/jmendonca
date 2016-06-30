@@ -1,7 +1,58 @@
 $(document).ready(function(){
+  inicio = 'inicio'
+
+  /* La funcion que cargara la pagina segun la seccion */
+  function cargarSeccion(seccion){
+    $.ajax({
+      type: 'GET',
+      dataType: 'HTML',
+      url:seccion+'.html',
+      success: function(data){
+            $('#contenedor-principal').html(data);
+          },
+      error: function(){
+            alert('No se puede cargar la pagina ' + seccion);
+          }
+    });
+  };
+
+  cargarSeccion(inicio);
+
+});
 
 
-              $("#btnEnviarMensaje").on("click",function(){               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+
+
+              $("#btnEnviarMensaje").on("click",function(){
                 var nombre = $('#nombre').val();
                 var raza = $('#raza').val();
                 var edad = $('#edad').val();
@@ -19,7 +70,7 @@ $(document).ready(function(){
                       url: "http://web-unicen.herokuapp.com/api/create",
                       contentType: "application/json; charset=utf-8",
                       success: function(datas){
-                        alert("El mensaje ha sido enviado con exito.");                        
+                        alert("El mensaje ha sido enviado con exito.");
                         var string = "<div class='col-md-7'><table id='tablares' class='table'><tr><td>Nombre:</td><td>"+data.nombre+"</td></tr><tr><td>Raza:</td><td>"+data.raza+"</td></tr><tr><td>Edad:</td><td>"+data.edad+"</td></tr><tr><td>Sexo:</td><td>"+data.sexo+"</td></tr></table></div>";
                         document.getElementById('resultado').innerHTML = string;
                       },
@@ -27,12 +78,12 @@ $(document).ready(function(){
                         alert("Hubo un error en la red.");
                       }
                     });
-                
+
               });
 
 
-              $("#btnEliminarMensaje").on("click",function(){   
-              
+              $("#btnEliminarMensaje").on("click",function(){
+
 
                try {
 
@@ -40,7 +91,7 @@ $(document).ready(function(){
 
                var rowCount = table.rows.length;
 
- 
+
 
                for(var i=0; i<rowCount; i++) {
 
@@ -66,7 +117,7 @@ $(document).ready(function(){
 
                }
 
-          
+
               });
     });
 function restfull(){
