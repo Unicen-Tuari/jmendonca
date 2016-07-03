@@ -20,6 +20,11 @@ $(document).ready(function(){
   };
 
   cargarSeccion(inicio);
+  cargarSeccion(mascotas);
+  cargarSeccion(contacto);
+  cargarSeccion(detalle-mascotas);
+  cargarSeccion(carga-mascotas);
+
 
   $('#inicio').on('click', function(event){
     event.preventDefault();
