@@ -2,7 +2,8 @@ $(document).ready(function(){
   inicio = 'inicio';
   mascotas = 'mascotas';
   contacto = 'contacto';
-
+  detalle-mascotas = 'detalle-mascotas';
+  carga-mascotas = 'carga-mascotas';
   /* La funcion que cargara la pagina segun la seccion */
   function cargarSeccion(seccion){
     $.ajax({
@@ -41,7 +42,19 @@ $(document).ready(function(){
     cargarSeccion(contacto);
   });
 
+$('#detalle-mascotas').on('click', function(event){
+    event.preventDefault();
+    $(".nav").find(".active").removeClass("active");
+    $(this).addClass("active");
+    cargarSeccion(detalle-mascotas);
+  });
 
+$('#carga-mascotas').on('click', function(event){
+    event.preventDefault();
+    $(".nav").find(".active").removeClass("active");
+    $(this).addClass("active");
+    cargarSeccion(carga-mascotas);
+  });
 });
 
 
@@ -73,7 +86,7 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
+/*$(document).ready(function(){
 
 
               $("#btnEnviarMensaje").on("click",function(){
@@ -159,4 +172,4 @@ function restfull(){
         $("#use-ajax").html("<h1>Loading...</h1>");
         //alert("Hola Mundo!");
         event.preventDefault();
-    };
+    };*/

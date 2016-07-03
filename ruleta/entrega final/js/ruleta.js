@@ -41,6 +41,11 @@ const _premioMenores=2;
 const _mayoresQue=6;
 const _menoresQue=5;
 
+onload=juego.iniciar()
+onchange=juego.elegirApuesta()
+onclick=juego.agregarApuesta()
+onclick=juego.evaluar()
+var juego=new Juego();
 /*
 Objeto
 Nombre: Casillero,
@@ -192,6 +197,7 @@ Propiedades:
 
 Metodos:
 */
+
 function Juego(){
 	this.tablero = new Tablero();
 	this.listaApuestas=[];
