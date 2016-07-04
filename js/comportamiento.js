@@ -2,8 +2,8 @@ $(document).ready(function(){
   inicio = 'inicio';
   mascotas = 'mascotas';
   contacto = 'contacto';
-  detalle-mascotas = 'detalle-mascotas';
-  carga-mascotas = 'carga-mascotas';
+  detallemascotas = 'detallemascotas';
+  cargamascotas = 'cargamascotas';
   /* La funcion que cargara la pagina segun la seccion */
   function cargarSeccion(seccion){
     $.ajax({
@@ -43,18 +43,18 @@ $(document).ready(function(){
     cargarSeccion(contacto);
   });
 
-$('#detalle-mascotas').on('click', function(event){
+$('#detallemascotas').on('click', function(event){
     event.preventDefault();
     $(".nav").find(".active").removeClass("active");
     $(this).addClass("active");
-    cargarSeccion(detalle-mascotas);
+    cargarSeccion(detallemascotas);
   });
 
-$('#carga-mascotas').on('click', function(event){
+$('#cargamascotas').on('click', function(event){
     event.preventDefault();
     $(".nav").find(".active").removeClass("active");
     $(this).addClass("active");
-    cargarSeccion(carga-mascotas);
+    cargarSeccion(cargamascotas);
   });
 });
 
