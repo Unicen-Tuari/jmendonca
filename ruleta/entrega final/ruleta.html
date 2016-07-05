@@ -66,8 +66,8 @@
       <div id="color" class="">
           <select class=""  id="color">
               <option>Seleccione color</option>
-              <option value="negro">negro</option>
-              <option value="rojo">rojo</option>
+              <option value="black">negro</option>
+              <option value="red">rojo</option>
           </select>
       </div>
       <div id="mayores" class="">
@@ -80,9 +80,9 @@
               <option></option>
           </select>
       </div>
-      <div class="">
-          <label for="cantidad" style="color: white;">Cantidad de fichas:</label>
-          <input type="text" id="cantidad" class="form-group" value="" onfocus="this.value=''">
+      <div class="cantFichas">
+          <label for="cantidad">Cantidad de fichas:</label>
+          <input type="text" id="cantidad" class="form-group" value="">
       </div>
       <div class="">
           <input type="button" class="" id="botonAgregar"  name="" value="Agregar Apuesta"><!-- despues de id boton agreg va onclick="juego.agregarApuesta()" -->
@@ -129,12 +129,12 @@
             </tr>
             </table>
           </div>
-          <div id="lista" class="lista">
-            <!-- Lista apuestas -->
-          </div>
+          
         </tbody>
 
-
+      <div id="lista" class="lista">
+        <!-- Lista apuestas -->
+        </div>
         <div id="msj" class="msj">
           <!-- Fotos -->
         </div>
@@ -144,8 +144,7 @@
       copyright&copy;2016.design by juanma mendonça
     </footer>
   <script type="text/javascript" src="js/ruleta.js"></script>
- <!-- <script type="text/javascript">
-    var juego=new Juego();
-  </script> --> 
+ <script type="text/javascript" src="js/inicio.js">
+  </script> 
   </body>
 </html>

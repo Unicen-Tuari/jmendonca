@@ -93,6 +93,9 @@ footer{
   /*visibility: hidden;*/
 }
 .lista{
-  position: absolute;;
+  position: absolute;
   float: right;
+}
+.cantFichas{
+  color: white;
 }

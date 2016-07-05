@@ -14,7 +14,6 @@ const _premioMenores=2;
 const _mayoresQue=6;
 const _menoresQue=5;
 
-var juego=new Juego();
 /*
 Objeto
 Nombre: Casillero,
@@ -263,6 +262,7 @@ function Juego(){
 		}
 		Juego.prototype.agregarApuesta = function(){
 			if (this.flag != "") {//esta bandera es seteada cuando hace visible el select la funcion elegirApuesta()
+				document.getElementById("msj").style.visibility="hidden";	
 				var id = String(this.flag); //string tipo de apuesta
 				var tagSelect = document.getElementById(id).children;//objeto tag select
 				var cantidad = parseInt(document.getElementById('cantidad').value);//numero de la cantidad
@@ -332,6 +332,7 @@ function Juego(){
 								}
 								break;
 						case "color":
+
 								for (var e = 0; e < this.listaCuadros.length; e++) {
 									if(this.listaCuadros[e].valor == random && this.listaCuadros[e].ccolor == this.listaApuestas[i].valor){
 										premio += this.listaApuestas[i].cantidad * _premioColor;
@@ -365,16 +366,5 @@ function Juego(){
 				document.getElementById('lista').innerHTML = "";
 			}
 		}
-
-window.onload = function(){
-	juego.iniciar();
-}
-
-document.getElementById('clase-apuesta').onchange = Juego.prototype.elegirApuesta();
-document.getElementById('botonAgregar').onclick = Juego.prototype.agregarApuesta();
-document.getElementById('botonTirar').onclick = Juego.prototype.evaluar();
-
-// onchange=juego.elegirApuesta();
-// onclick=juego.agregarApuesta();
-// onclick=juego.evaluar();
 };
+ 
