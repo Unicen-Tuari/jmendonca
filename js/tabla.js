@@ -1,172 +1,116 @@
 "use strict";
 
-function pedirInfoPorItem(item){
-  $.ajax({
-    method: "GET",
-    dataType: 'html',
-    url: item,
-    success: function(resultData){
-      var html = "";
-      html += resultData;
-      $("#contenedorCentral").html(html);
-      if (item === "../html/catalogo.html") {
-        pedirInfoPorGrupo();
-        $("#agregar").on("click", function(){
-          guardarInformacion();
+$('document').ready(function(){     //siempre para iniciar con codigo Jquery, despues que el DOM haya sido cargado.
+                  //esto nos puede avisar cuando la pagian este completamente cargada.
+  var grupo = 30;             // Definicion de Variables el nro del grupo
+
+    function obtenerInfo(grupo){   // ###### LLAMADA AJAX MEDIANTE GET  ##########
+    $.ajax({
+      type: 'GET',
+      dataType: 'JSON',         // datos enviados al server
+      url: 'http://web-unicen.herokuapp.com/api/group/' + grupo,      // consulta que hacemos por grupo
+      success: function(data){        // funcion que se ejecutara cuando el request fue exitoso
+            var nombre = '';
+            var raza = '';
+            var edad = '';
+            var sexo = '';
+            var eliminar = '';
+            var registro = '';
+            $('#descripcion-mascota').html('');                    //tbody de mi tabla
+            for (var i = 0 ; i < data.information.length ; i++){
+              nombre = data.information[i]['thing']['nombre'];
+              raza = data.information[i]['thing']['raza'];
+              edad = data.information[i]['thing']['edad'];              // ####### RECIBIMOS INFORMACION Y EDITAMOS EL DOM  #########
+              sexo = data.information[i]['thing']['sexo'];
+              eliminar = '<input class="btn btn-danger eliminar" type="button" value="eliminar"></input>';
+              registro = '<tr><td class="horario">' + nombre + '</td><td>' + raza + '</td><td>' + edad + '</td><td>' + sexo + '</td><td>'  + eliminar +'</td></tr>';
+              $('#descripcion-mascota').append(registro);       // añadimos
+            }
+            var btnsEliminar = $('.eliminar');
+            for (var i = 0; i < btnsEliminar.length; i++) {
+              aEliminar(i,data.information[i]['_id']);
+            }
+          },
+      error: function(){            // funcion que se ejecutara cuando el request tuvo un error
+            alert('Error, no se  puede cargar la tabla');
+          }
+    });
+  };
+
+  function aEliminar(i,id){
+    var btn = $(".eliminar")[i];
+    btn.onclick = function(){
+      eliminarInfo(id);
+    }
+  }
+
+  function eliminarInfo(item){
+    var id = item;
+    $.ajax({
+      url:"http://web-unicen.herokuapp.com/api/delete/" + id,
+      method:"DELETE",
+      success: function(data){
+        obtenerInfo(grupo);
+      },
+      error:function(jqxml, status, errorThrown){
+        alert('No se puedo eliminar!');
+      }
+    });
+  }
+
+    function agregarInfo(grupo){
+
+      var registro = {      // objeto JSON
+        "nombre": " ",
+        "raza": " ",
+        "edad": " ",
+        "sexo": " "
+      };
+
+      var nom = $('#nombre').val();      //asigno el valor del input
+      $('#nombre').val('');                 //seteo el input
+      var raz = $('#raza').val();
+      $('#raza').val('');
+      var ed = $('#edad').val();
+      $('#edad').val('');
+      var sex = $('#sexo').val();
+      $('#sexo').val('');
+
+      registro.nombre = nom;     //asigno el valor del input
+      registro.raza = raz;
+      registro.edad = ed;
+      registro.sexo = sex;
+
+      var registroCompleto = {
+          'group': grupo,
+          'thing': registro    // En esta caso tengo un arreglo, pero se recomiendo un objeto JSON es mas ligero
+      };
+
+      if( nom.length > 0 & raz.length > 0 & ed.length > 0 & sex.length > 0){
+        $.ajax({
+          method: "POST",
+          dataType: 'JSON',           // el tipo de informacion que se espera recibir como respuesta del servidor
+          data: JSON.stringify(registroCompleto),   //enviamos el objeto serializado. stringify convierte el objeto a la cadena de texto lista para enviar
+          contentType: 'application/json; charset=utf-8',
+          url: "http://web-unicen.herokuapp.com/api/create",
+          success: function(data){
+                obtenerInfo(grupo);
+              },
+          error: function(data){
+                alert("Error!! no se cargo info");
+                obtenerInfo(grupo);
+              }
         });
-      }
-      else if (item === "../html/productos.html") {
-        cargarProductos();
-        cargarLinkAProducto();
-      }
-      else if (item === "../html/home.html") {
-        cargarLinkAProducto();
-      }
-    },
-    error:function(jqxml, status, errorThrown){
-      console.log(errorThrown);
-    }
+      } else {
+        alert('advertencia! agrege algo');
+        obtenerInfo(grupo);
+      };
+    };
+
+   obtenerInfo(grupo);  //iniciamos la pagina solicitando la info q tenga
+
+  $('#agregar-mascota').on('click', function(event){
+    event.preventDefault();
+    agregarInfo(grupo);
   });
-}
-
-function cargarLinkAProducto(){
-  $(".reloh")[0].onclick = function(){
-    pedirInfoPorItem("../html/produ.html");
-  }
-}
-
-/*function inputsCatalogo(){
-  var string = "<div>Agregar valores nuevos: </div>"
-  string += '<span class="col-xs-6 col-sm-2">CODIGO: </span>';
-  string += '<input type="text" class="btn col-xs-6 col-sm-2 Valores"></input> ';
-  string += '<span class="col-xs-6 col-sm-2">DESCRIPCION: </span>';
-  string += '<input type="text" class="btn col-xs-6 col-sm-2 Valores"></input> ';
-  string += '<span class="col-xs-6 col-sm-2">PRECIO: </span>';
-  string += '<input type="number" class="btn col-xs-6 col-sm-2 Valores"></input> ';
-  string += '<input id="agregar" type="button" class="btn col-xs-12 col-sm-6 col-sm-offset-3" value="AGREGAR">'
-  string += '<div class="col-xs-12" id="guardarAlert"></div>';
-  return string;
-}*/
-
-function crearTabla(resultData){
-  var html = "";
-  for (var i = 0; i < resultData.information.length; i++) {
-    html += '<tr>';
-    html += '<td>'+resultData.information[i]['thing'].nombre+'</td>';
-    html += '<td>'+resultData.information[i]['thing'].raza+'</td>';
-    html += '<td>$'+resultData.information[i]['thing'].edad+'</td>';
-    html += '<td>$'+resultData.information[i]['thing'].sexo+'</td>'
-    html += '<td><input class="btn eliminar" type="button" value="eliminar"></input>'
-    html += '</tr>';
-  }
-  $("#tabla").html(html);
-  var botonesEliminar = $(".eliminar");
-  for (var i = 0; i < botonesEliminar.length; i++) {
-    asignarEliminar(i, resultData.information[i]['_id']);
-  }
-}
-
-function asignarEliminar(i, id){
-  var boton = $(".eliminar")[i];
-  boton.onclick = function(){
-    borrarInfoPorItem(id);
-  }
-}
-
-function borrarInfoPorItem(item) {
-  var id=item;
-  $.ajax({
-    url:"http://web-unicen.herokuapp.com/api/delete/" + id,
-    method:"DELETE",
-    success: function(resultData){
-      console.log(resultData);
-      pedirInfoporGrupo();
-    },
-    error:function(jqxml, status, errorThrown){
-      alert('Error!');
-      console.log(errorThrown);
-    }
-  });
-}
-
-function pedirInfoporGrupo(){
-  var grupo = 30;
-  $.ajax({
-    method: "GET",
-    dataType: 'JSON',
-    url: "http://web-unicen.herokuapp.com/api/group/" + grupo,
-    success:function (resultData){
-      crearTabla(resultData);
-    },
-    error:function(jqxml, status, errorThrown){
-      console.log(errorThrown);
-    }
-  });
-}
-
-function guardarInformacion(){
-  var grupo = 30;
-  var informacion = {
-    nombre: null,
-    raza: null,
-    edad: null,
-    sexo: null
-  };
-  var inputs = $(".Valores");
-  for (var i = 0; i < inputs.length; i++) {
-    if (inputs[i].value == "") {
-      alert('debe llenar todos los campos');
-      return;
-    }
-  }
-  informacion.nombre = inputs[0].value;
-  informacion.raza = inputs[1].value;
-  informacion.edad = inputs[2].value;
-  informacion.sexo = inputs[3].value;
-  var info = {
-    "group": grupo,
-    "thing": informacion
-  };
-  $.ajax({
-    method: "POST",
-    dataType: 'JSON',
-    data: JSON.stringify(info),
-    contentType: "application/json; charset=utf-8",
-    url: "http://web-unicen.herokuapp.com/api/create",
-    success: function(resultData){
-      $("#guardarAlert").removeClass("alert-danger")
-      $("#guardarAlert").addClass("alert-success")
-      $("#guardarAlert").html("Guardado");
-      console.log(resultData.information);
-      pedirInfoporGrupo();
-    },
-    error:function(jqxml, status, errorThrown){
-      console.log(errorThrown);
-      $("#guardarAlert").addClass("alert-danger");
-      $("#guardarAlert").html("Error por favor intente mas tarde");
-    }
-  },
-  $("#guardarAlert").html("Cargando...")
-);
-}
-
-function mostrar(numero, boton){
-  var listas = $(".prodfiltrado");
-  boton.onclick = function(){
-    for (var i = 0; i < listas.length; i++){
-      borrarListas(listas[i]);
-    }
-    listas[numero].style.display = 'block';
-  }
-}
-
-function borrarListas(lista) {
-  lista.style.display = 'none';
-}
-
-function cargarmascotas() {
-  var botones = $(".filtro input");
-  for (var i = 0; i < botones.length; i++) {
-    mostrar(i, botones[i]);
-  }
-}
+});
