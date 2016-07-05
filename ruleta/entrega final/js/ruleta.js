@@ -1,34 +1,7 @@
 "use strict";
-/**
-
-* @fileoverview Menú aprMenu, desplegable con efecto expansión suavizado
-
-*
-
-* @version                               2.2
-
-*
-
-* @author                 César Krall < cesarkrall@aprenderaprogramar.com>
-
-* @copyright           aprenderaprogramar.com
-
-*
-
-* History
-
-* v2.2 – Se mejoró el efecto de expansión de los submenús dándole efecto aceleración
-
-* v2.0 – Se evitó que quedaran supersupuestos textos de submenús
-
-* v1.1 – Se mejoró la compatibilidad con navegadores Opera
-
-* ----
-
-* La primera versión de aprMenu fue escrita por Karl Monitrix
-*/
 
 /*Globales, declaracion de constantes*/
+
 const _saldo=100;
 const _numCasilleros=11;
 const _costoPorApuesta=1;
@@ -41,10 +14,6 @@ const _premioMenores=2;
 const _mayoresQue=6;
 const _menoresQue=5;
 
-onload=juego.iniciar()
-onchange=juego.elegirApuesta()
-onclick=juego.agregarApuesta()
-onclick=juego.evaluar()
 var juego=new Juego();
 /*
 Objeto
@@ -205,6 +174,9 @@ function Juego(){
 	this.flag="";
 	this.credito = new Credito();
 	this.revancha=false;
+
+	
+
 	Juego.prototype.iniciar = function(){
 		this.listaCuadros=this.tablero.crear();
 		this.tablero.redraw();
@@ -394,6 +366,15 @@ function Juego(){
 			}
 		}
 
+window.onload = function(){
+	juego.iniciar();
+}
 
+document.getElementById('clase-apuesta').onchange = Juego.prototype.elegirApuesta();
+document.getElementById('botonAgregar').onclick = Juego.prototype.agregarApuesta();
+document.getElementById('botonTirar').onclick = Juego.prototype.evaluar();
 
+// onchange=juego.elegirApuesta();
+// onclick=juego.agregarApuesta();
+// onclick=juego.evaluar();
 };
