@@ -4,45 +4,35 @@
   <div class="container">
     <div class="row" style="padding-top:50px;">
           <center>
-            <table class="agregarMascota">
-                              <caption>carga tu mascota aqui:</caption>
-                              <thead>
-                                <tr>
-                                  <th>Mascota</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>Nombre:</td>
-                                  <td> <input id="nombre" value="" type="text" name=""> </td>
-                                </tr>
-                                
-                                <tr>
-                                  <td>Raza:</td>
-                                  <td> <input id="raza" value="" type="text" name=""> </td>
-                                </tr>
+            <table class="tabla_mascota">
+                <thead>
+                  <tr>
+                    <th class="titulo_tabla" colspan="5">carga tu mascota aqui</th>
+                  </tr>
+                  <td class="titulo_columna">nombre</td>
+                  <td class="titulo_columna">raza</td>
+                  <td class="titulo_columna">edad</td>
+                  <td class="titulo_columna">sexo</td>
+                  <td class="titulo_columna">Eliminar</td>
+                </thead>
+                <tbody id="descripcion-mascota">
 
-                                <tr>
-                                  <td>Edad:</td>
-                                  <td> <input id="edad" value="" type="text" name=""> </td>
-                                </tr>
-
-                                <tr>
-                                  <td>Sexo:</td>
-                                  <td> <input id="sexo" value="" type="text" name=""> </td>
-                                </tr>
-                              </tbody>
-                            </table>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td><input id="nombre" class="form-control descripcion" type="text" maxlength="20" placeholder="nombre:"></td>
+                    <td><input id="raza" class="form-control descripcion" type="text" maxlength="20" placeholder="raza"></td>
+                    <td><input id="edad" class="form-control descripcion" type="text" maxlength="20" placeholder="edad"></td>
+                    <td><input id="sexo" class="form-control descripcion" type="text" maxlength="20" placeholder="sexo"></td>
+                  </tr>
+                </tfoot>
+              </table>
+              <button id="agregar-descripcion" type="button" class="btn btn-primary">Agregar</button>
           </center>
                             
         </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <button id="btnEnviarMensaje" class="btn btn-default">Cargar</button>
-      <button id="btnEliminarMensaje" class="btn btn-default">Eliminar</button>
-    </div>
-  </div>
+  
 
   </div>
    <div class="container">
