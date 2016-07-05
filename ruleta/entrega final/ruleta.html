@@ -5,7 +5,7 @@
     <title>Ruleta</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
   </head>
-  <body><!-- onload="juego.iniciar()" -->
+  <body>
     <header>
       <div class="col-a">
         <div class="logo">
@@ -15,7 +15,7 @@
       <div class="col-b">
         <div class="apuesta">
           <div class="typeBet">
-            <select class="form-control" id="clase-apuesta" ><!-- onchange="juego.elegirApuesta()" -->
+            <select class="form-control" id="clase-apuesta" >
                 <option value="selecciona">Selecciona una apuesta</option>
                 <option value="pleno">Pleno</option>
                 <option value="semiplenos">SemiPlenos</option>
@@ -85,8 +85,8 @@
           <input type="text" id="cantidad" class="form-group" value="">
       </div>
       <div class="">
-          <input type="button" class="" id="botonAgregar"  name="" value="Agregar Apuesta"><!-- despues de id boton agreg va onclick="juego.agregarApuesta()" -->
-          <input type="button" class="" id="botonTirar"  name="" value="TIRAR"><!-- despues de id boton tirar va onclick="juego.evaluar()"-->
+          <input type="button" class="" id="botonAgregar"  name="" value="Agregar Apuesta">
+          <input type="button" class="" id="botonTirar"  name="" value="TIRAR">
           <div id="premio" class="premio">
           </div>
       </div>
