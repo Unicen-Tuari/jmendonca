@@ -58,7 +58,23 @@
 .img-mascota{
   width: 100%;
   height: 320px;
-  background-image: url('../img/mascotas1.jpg');
+  background-image: url('../img/labrador.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; 
+}
+.img-mascota2{
+  width: 100%;
+  height: 320px;
+  background-image: url('../img/ovejero aleman.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; 
+}
+.img-mascota3{
+  width: 100%;
+  height: 320px;
+  background-image: url('../img/pitbull.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover; 
