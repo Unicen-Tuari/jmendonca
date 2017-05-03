@@ -1,0 +1,142 @@
+.contenedor{
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+}
+.cabezon{
+    width: 100%;
+    z-index: 2;/*lo uso para que pase al frente el objeto*/
+}
+ .cabezon table, tr, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+    font-style: italic;    
+}
+.cabezon table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.cabezon tr, th {
+    padding: 15px;
+}
+.partida{
+    width: 100%;
+}
+ .partida table, tr, td {    
+    border: 1px solid #ddd;
+    text-align: left;
+    font-style: normal;
+}
+.partida table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.partida tr, td {
+    padding: 15px;
+}
+.cabecera{  /*es el div*/
+    width: 100%; 
+    height: 5%;
+    background-color:black;
+    display: table;/*esto es para poder alinear el texto verticalmente*/  
+}
+.cabecera p{ /*como veria el texto*/
+    display: table-cell;
+    vertical-align: middle;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding-left: 30px;
+    vertical-align: middle;
+    justify-content: center;   
+}
+.col-izq{ /*donde esta la tabla*/
+    float: left;
+    width: 30%; 
+    height: 100%;
+    border: 2px solid black; 
+}
+.col-central{ /*donde esta el gameboy*/
+    padding-top: 20px;
+    width: 100%; 
+    height: 90%;
+    background-color: antiquewhite;
+}
+.gameboy{  /*es el div del gameboy*/
+    padding-top: 20px;
+    width: 400px; 
+    height: 647px;
+    margin-left: auto;
+    margin-right: auto;    
+    background-image: url("../img/game-boytuning.png");
+   /* background-repeat: no-repeat;*/
+    background-position: center;
+    background-size: cover;/*la escala pa que llene todo el div*/
+}
+.pantalla{  
+    padding: 50px;
+    width: 250px; 
+    height: 210px;
+    margin-left: auto;
+    margin-right: auto;    
+}
+.marco{  
+     transform: scale(0.88);
+     padding-left: 15px;
+     margin-top: 25px;     
+}
+.img-ordenador{
+    width: 100%;
+    height: auto;
+}
+.img-jugador{
+    width: 100%;
+    height: auto;
+}
+.botonera{ 
+    margin-top: 50px;
+    width: 320px; 
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;      
+}
+.radioCheck {
+    text-align: center;
+    height: 40px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.radioCheck li {
+    display: inline;
+    padding-left: 11%;
+    padding-right: 11%;  
+}
+.radioCheck li input{
+    transform: scale(2);/*les das tamaño a los circulitos*/
+}
+.boton-seleccion button{
+    float: left;
+    border: 0px;
+    width: 33.33%; 
+    height: 50px;
+    background-color:cornflowerblue; 
+    border-radius: 25px;
+}
+.boton-jugar{
+    border: 1px;
+    margin-top: 40px;
+    width: 100px;
+    height: 100px;
+    background-image: url("../img/boton-jugar.png");  
+    background-size: cover;
+    background-color: transparent;
+}
+.boton-jugar:active {
+    transform: scale(0.95);/*con esto hago q el boton parezca q lo aprieto*/
+}
+.footer{
+    width: 100%; 
+    height: 5%;
+    background-color:black;
+}
