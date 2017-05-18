@@ -12,7 +12,6 @@
         var seleccion = 0;
         var partida = 0;
         var ganador = "";
-    
         
         document.getElementById("btn-jugar").onclick = jugar;
 
@@ -21,8 +20,25 @@
             var tiro = Math.floor(Math.random() * 3) + 1;
             tiro--; 
             document.getElementById("img-ordenador").src = lista[tiro].url;
-                    
-            if(lista[tiro].nombre === lista[seleccion].nombre) {
+            
+           //probabilidad de jugadas
+                   if (checboxprob){
+                    if(juagaanterior == piedra){
+                 arrprob=[50,75,100]
+                }
+              if (jugadaanterior== papel)
+                  arrprob=[25,75,100]
+
+               if( jugadaanterior= tijera)
+                    arrprob=[25,50,100]
+
+                rand = Random(0-100) //64
+                   for i=0, i< 3, i++
+                 if(rand<arreglodeprob[i])
+                     return i;
+                      }
+                   else{ //codigo de jugada comun
+                      if(lista[tiro].nombre === lista[seleccion].nombre) {
                 ganador = "Empate";
                 jugadas();
                 return "Empate";
@@ -63,6 +79,8 @@
                 } 
             }
         }    
+      }       
+            
 
         function jugadas(){
             // Find a <table> element with id="myTable":
