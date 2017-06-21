@@ -1,12 +1,19 @@
 <?php
-require_once("model.php")
-class ModelUsuario extends Model
+class ModelUsuario
 {
-  public function getUsuario()
+  private $db;
+  function __construct()
   {
-  $this->db->prepare("SELECT * FROM Usuario");
-  $result = $consulta->execute();
-    return $consulta->fetchAll();
+    $this->db = new PDO('mysql:host=localhost;'
+            .'dbname=db_mascotas;charset=utf8',
+            'root', '');
   }
+
+  function getUsuario(){
+    $consulta = $this->db->prepare("SELECT * FROM Usuario");
+    $result = $consulta->execute();
+    return $consulta->fetchAll();
+    }
+
 }
   ?>

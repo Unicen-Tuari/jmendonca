@@ -1,3 +1,6 @@
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `alimento`
 --
 
@@ -57,6 +60,14 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `email`, `password`) VALUES
+(123, 'juan86x@gmail.com', 'pp78@0078'),
+(321, 'juan86x@outlook.com', 'rrpp00798');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -97,7 +108,7 @@ ALTER TABLE `mascota`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=322;
 --
 -- Restricciones para tablas volcadas
 --
