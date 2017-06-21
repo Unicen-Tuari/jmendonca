@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-{include file="navbar.tpl"}
+{include file="navbarlogin.tpl"}
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -62,4 +62,4 @@
     </div>
   </div>
 </div><br>
-{include file="footer.tpl"}
+{include file="footerlogin.tpl"}

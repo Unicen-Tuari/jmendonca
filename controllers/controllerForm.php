@@ -9,5 +9,8 @@ class controllerForm
   {
       $this->vista = new ViewContacto();
   }
-
+function mostrarContacto(){
+    $this->vista->mostrarContacto();
+  }
+}
  ?>

@@ -1,13 +1,19 @@
 <?php
-require_once("model.php")
-class ModelMascota extends Model
+class ModelMascota
 {
-  public function getMascotas()
+  private $db;
+  function __construct()
   {
-  $this->db->prepare("SELECT * FROM Mascota");
-  $result = $consulta->execute();
-    return $consulta->fetchAll();
+    $this->db = new PDO('mysql:host=localhost;'
+            .'dbname=db_mascotas;charset=utf8',
+            'root', '');
   }
-}
 
-  ?>
+  function getMascotas(){
+    $consulta = $this->db->prepare("SELECT * FROM Mascota");
+    $result = $consulta->execute();
+    return $consulta->fetchAll();
+    }
+
+}
+?>

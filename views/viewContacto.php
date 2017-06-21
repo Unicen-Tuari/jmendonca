@@ -11,4 +11,9 @@ function __construct()
   $this->smarty = new Smarty;
   $this->baseDir = 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/';
 }
+function mostrarContacto(){
+  $this->smarty->assign("baseDir", $this->baseDir);
+  $this->smarty->display('contacto.tpl');
+  }
+}
 ?>

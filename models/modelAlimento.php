@@ -1,13 +1,20 @@
 <?php
-require_once("model.php")
-class ModelAlimento extends Model
+class ModelAlimento
 {
-  public function getAlimento()
+  private $db;
+  function __construct()
   {
-  $this->db->prepare("SELECT * FROM Alimento");
-  $result = $consulta->execute();
-    return $consulta->fetchAll();
+    $this->db = new PDO('mysql:host=localhost;'
+            .'dbname=db_mascotas;charset=utf8',
+            'root', '');
   }
+
+  function getAlimento(){
+  $consulta = $this->db->prepare("SELECT * FROM Alimento");
+  $result = $consulta->execute();
+  return $consulta->fetchAll();
+  }
+  
 }
 
-  ?>
+?>

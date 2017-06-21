@@ -6,13 +6,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">MASCOTAS.com</a>
+      <a class="navbar-brand" href="home">MASCOTAS.com</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="quienessomos.html">Quienes somos</a></li>
-        <li><a href="mascotas.html">Mascotas</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+     <ul class="nav navbar-nav">
+        <li class="active"><a href="home">Home</a></li>
+        <li><a href="home/quienessomos">Quienes somos</a></li>
+        <li><a href="home/mascotas">Mascotas</a></li>
+        <li><a href="home/contacto">Contacto</a></li>
       </ul>
-    
+    </div>
+  </div>
+</nav>
