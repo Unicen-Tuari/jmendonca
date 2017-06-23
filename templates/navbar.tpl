@@ -11,9 +11,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
      <ul class="nav navbar-nav">
         <li class="active"><a href="home">Home</a></li>
-        <li><a href="home/quienessomos">Quienes somos</a></li>
-        <li><a href="home/mascotas">Mascotas</a></li>
-        <li><a href="home/contacto">Contacto</a></li>
+        <li><a href="quienessomos">Quienes somos</a></li>
+        <li><a href="mascotas">Mascotas</a></li>
+        <li><a href="contacto">Contacto</a></li>
       </ul>
     </div>
   </div>

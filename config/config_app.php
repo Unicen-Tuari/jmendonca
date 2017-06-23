@@ -6,15 +6,20 @@ class ConfigApp{
 
 
         public static $RESOURCE = 'recurso';
+        public static $RESOURCE_CONTROLADOR = 'controlador';
+        public static $RESOURCE_METODO = 'metodo';
+        public static $PARAMETERS = 'parametros';
+
         public static $RESOURCE_HOME = 'home';
         public static $RESOURCE_LOGIN = 'login';
-        //public static $RESOURCE_ADMIN = 'admin';
+        public static $RESOURCE_ADMIN = 'admin';
         public static $RESOURCE_QUIENESSOMOS= 'quienessomos';
         public static $RESOURCE_MASCOTAS = 'mascotas';
         public static $RESOURCE_CONTACTO = 'contacto';
         public static $TASK = 'tarea';
 
-        public static $PARAMETERS = 'params';
+        
+        public static $APP_URL = 'http://localhost/jmendonca-master';
 
 }
 ?>
