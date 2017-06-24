@@ -8,6 +8,11 @@ class ModelMascota extends Model
     $result = $consulta->execute();
     return $consulta->fetchAll();
     }
-
+function editar_mascota(){
+    
+}
+    function borrar_mascota(){
+        
+    }
 }
 ?>
