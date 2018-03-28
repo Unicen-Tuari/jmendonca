@@ -1,3 +1,4 @@
+
 p{
     color: blueviolet;
     font-weight: bold;
@@ -14,4 +15,6 @@ a{
 .importante{
     color: yellowgreen;
     font-size: 25px;
+    font-style: italic;
+    font-family: cursive;
 }
