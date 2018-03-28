@@ -1,0 +1,17 @@
+p{
+    color: blueviolet;
+    font-weight: bold;
+}
+
+h2{
+    color: darkblue;
+}
+
+a{
+    color: red;
+}
+
+.importante{
+    color: yellowgreen;
+    font-size: 25px;
+}
