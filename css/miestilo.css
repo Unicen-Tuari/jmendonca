@@ -2,6 +2,8 @@
 p{
     color: blueviolet;
     font-weight: bold;
+    text-align: right;
+    font-size: 15px;
 }
 
 h2{
@@ -10,11 +12,13 @@ h2{
 
 a{
     color: red;
+    font-size: 25px;
 }
 
 .importante{
     color: yellowgreen;
-    font-size: 25px;
+    font-size: 20px;
+    text-align: left;
     font-style: italic;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
