@@ -5,6 +5,10 @@ body{
   float: left;
   width: 40%;/*adapta el tamaño del div por porcentaje de pantalla segun sea el ancho de la pantalla ocupa el 40 por ciento*/
 }
+.imglogo{
+  width:300px;
+  height:150px;
+}
 /*--navbar--*/
 .menu{
    float: left;
@@ -40,9 +44,12 @@ body{
   padding: 10px 10px;
   text-align: left;
 }
+.pcontacto h3{
+  font-size: medium;
+}
 /*--form hecho de ejemplo de MDN--*/
 form {
-  /* Solo para centrar el form en la página */
+  /* Solo para centrar el en la página */
   margin: 0 auto;
   width: 400px;
 padding: 1em;
@@ -71,13 +78,12 @@ input, textarea {
   width: 300px;
 /*-- Para armonizar la apariencia del borde del campo de texto --*/
   -moz-box-sizing: border-box;
-  /*-webkit-box-sizing: border-box;*/
   box-sizing: border-box;
   border: 1px solid #000;
 }
 /*-- Para resaltar un poco los elementos activos-- */
 input:focus, textarea:focus {
-  border-color: red;
+  border: solid 2px red;
 }
 
 textarea {
@@ -112,10 +118,11 @@ button {
 }
 /*--texto del nosotros--*/
 .pnos{
+  /*font-family: 'Permanent Marker', cursive;*/
   font-family: 'Acme', sans-serif;
-  border-radius: 15px;
+  /*border-radius: 15px;
   border-style: groove;
-  border-color: burlywood;
+  border-color: burlywood;*/
 }
 /*--foto de la descripcion de la noticia--*/
 .detalle .izq{
@@ -137,7 +144,7 @@ button {
   height: 100%;
 }
 
-.der table {     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+.der table {     font-family: comic sans,sans-serif;
     font-size: 12px;    margin: 5px;     width: 100%; text-align: left;    border-collapse: collapse; }
 
 .der th {     font-size: 13px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
@@ -147,13 +154,107 @@ button {
     color: #669;    border-top: 1px solid transparent; }
 
 .der tr:hover td { background: #d0dafd; color: #339; }
+
 /*--posicion de la imagen de nosotros*/
-/*.img_position{
-  position: absolute;
-  width: 50px;
-  height: 50px;
-}*/
+.centerimg{
+  width: 30%;
+  height: 40%;
+  margin-left: 35%;
+  margin-right: 35%;
+  float: center;
+}
 /*listado de noticias de la home*/
 .listhome{
-  
+  position: relative;
+  text-align: center;
+  /*para achicar los cuadraditos de cada noticia*/
+  margin-left: 20%;
+  margin-right: 20%;
 }
+.listhome ul li{
+  list-style:none;/*con esto le saco los puntos a la lista*/
+  border: 35%;
+  border-style: double;
+  border-color: red;
+}
+.listhome p{
+  font-family: 'Permanent Marker', cursive;
+  width: auto;
+  height: auto;
+}
+h3{
+  float: none ;
+  text-align: center;
+  margin-top:50px;
+  font-family: 'Titan One', cursive;
+  font-size: large;
+}
+
+h1{
+  float: none;
+  /*font-family: 'Titan One', cursive;*/
+  font-family: 'Audiowide', cursive;
+  font-size: xx-large;
+  /*color: greenyellow;*/
+}
+h1:hover{
+  color: red;
+}
+.texto {
+  font-size:28px;
+  font-family:'Audiowide', cursive;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+.parpadea {
+
+  animation-name: parpadeo;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{
+   0% { color: #9640F1;}
+  50% { color: black; }
+   100% { color: #9640F1; }
+}
+
+@-webkit-keyframes parpadeo {
+  0% { color: #9640F1; }
+  50% { color: black; }
+   100% { color: #9640F1; }
+}
+
+@keyframes parpadeo {
+   0% { color: #9640F1; }
+  50% { color: black; }
+   100% { color: #9640F1; }
+}
+
+h4{
+  font-family: 'Noticia Text', serif;
+  font-size: medium;
+}
+/*efectos en las imagenes de la lista*/
+.zoom {
+/* Aumentamos la anchura y altura durante 2 segundos */
+      transition: width 2s, height 2s, transform 2s;
+      -moz-transition: width 2s, height 2s, -moz-transform 2s;
+      -webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+      -o-transition: width 2s, height 2s,-o-transform 2s;
+}
+
+.zoom:hover{
+        /* tranformamos el elemento al pasar el mouse por encima al doble de
+           su tamaño con scale(2). */
+        transform : scale(2);
+        -moz-transform : scale(2);      /* Firefox */
+        -webkit-transform : scale(2);   /* Chrome - Safari */
+        -o-transform : scale(2);        /* Opera */
+    }
