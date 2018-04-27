@@ -1,5 +1,7 @@
 body{
-  background: rgba(67, 134, 134, 0.39);
+  /*background: rgba(67, 134, 134, 0.39);*/
+  background-image:url('../images/fondo.png');
+  background-repeat:round;
 }
 .logo{
   float: left;
@@ -36,8 +38,8 @@ body{
     border-bottom: 2px solid lightslategrey;
 }
 .menu li a:hover {
-    color: greenyellow;
-    border-bottom: 2px solid greenyellow;
+    color: #F7E42C;
+    border-bottom: 2px solid #F7E42C;
 }
 /*--titulo del form--*/
 .pcontacto{
@@ -174,8 +176,9 @@ button {
 .listhome ul li{
   list-style:none;/*con esto le saco los puntos a la lista*/
   border: 35%;
+  border-radius: 15%;
   border-style: double;
-  border-color: red;
+  border-color: #F57070;
 }
 .listhome p{
   font-family: 'Permanent Marker', cursive;
@@ -197,9 +200,9 @@ h1{
   font-size: xx-large;
   /*color: greenyellow;*/
 }
-h1:hover{
+/*h1:hover{
   color: red;
-}
+}*/
 .texto {
   font-size:28px;
   font-family:'Audiowide', cursive;
@@ -220,21 +223,21 @@ h1:hover{
 }
 
 @-moz-keyframes parpadeo{
-   0% { color: #9640F1;}
+   0% { color: greenyellow;}
   50% { color: black; }
-   100% { color: #9640F1; }
+   100% { color: greenyellow; }
 }
 
 @-webkit-keyframes parpadeo {
-  0% { color: #9640F1; }
+  0% { color: greenyellow; }
   50% { color: black; }
-   100% { color: #9640F1; }
+   100% { color: greenyellow; }
 }
 
 @keyframes parpadeo {
-   0% { color: #9640F1; }
+   0% { color: greenyellow; }
   50% { color: black; }
-   100% { color: #9640F1; }
+   100% { color: greenyellow; }
 }
 
 h4{
