@@ -3,12 +3,54 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>memotest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/memotest.css" />
 </head>
 <body>
+    <header>
+        <div class="eleccion">
+            <select class="form-control" id="clase-apuesta">
+                <option value="selecciona">Selecciona la cantidad de casilleros</option>
+                <option value="8c">8 casilleros</option>
+                <option value="5c">5 casilleros</option>
+                </select>
+            </div>
+            <div>
+                <input type="button" class="" id="jugar" name="" value="JUGAR">
+            </div>
+                
+        </header
     
-<script src="js/memotest.js"></script>
+    <div id="bg">
+    </div>
+        <div id="memotest">
+        <table border="0">
+            <tr>
+                <td><img src="images/bg.png" id="0" onclick='imgcheck(this)' /></td>
+                <td><img src="images/bg.png" id="1" onclick='imgcheck(this)' /></td>
+                <td><img src="images/bg.png" id="2" onclick='imgcheck(this)' /></td>
+                <td><img src="images/bg.png" id="3" onclick='imgcheck(this)' /></td>
+            </tr>
+            <tr>
+                <td><img src="images/bg.png" id="4" onclick='imgcheck(this)' /></td>
+                <td><img src="images/bg.png" id="5" onclick='imgcheck(this)' /></td>
+                <td><img src="images/bg.png" id="6" onclick='imgcheck(this)' /></td>
+                <td><img src="images/bg.png" id="7" onclick='imgcheck(this)' /></td>
+            </tr>
+            </table>
+            <div id="anotador">
+                <div id="Aciertos">Aciertos (X):
+                    <span id="A1">0</span>
+                </div>
+                <div id="No acertados">No acertados (Y o L):
+                    <span id="A2">0</span>
+                </div>
+            </div>
+        </div>
+<!--<script src="js/memotest.js"></script>-->
 </body>
+<footer class="footer">
+        <b>&copy 2018 juanma mendonça</b>
+</footer>
 </html>
