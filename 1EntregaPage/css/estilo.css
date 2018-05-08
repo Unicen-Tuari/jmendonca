@@ -261,3 +261,12 @@ h4{
         -webkit-transform : scale(2);   /* Chrome - Safari */
         -o-transform : scale(2);        /* Opera */
     }
+
+.userlist{
+  position: relative;
+  border: 35%;
+  border-radius: 10%;
+  border-style: groove;
+  border-color: blue;
+  float: left;
+}
