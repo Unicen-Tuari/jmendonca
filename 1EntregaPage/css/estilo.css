@@ -192,6 +192,11 @@ h1{
   font-size: xx-large;
 }
 
+h4{
+  font-family: 'Noticia Text', serif;
+  font-size: medium;
+}
+/*---titulo que parpadea---*/
 .texto {
   font-size:28px;
   font-family:'Audiowide', cursive;
@@ -229,10 +234,6 @@ h1{
    100% { color: greenyellow; }
 }
 
-h4{
-  font-family: 'Noticia Text', serif;
-  font-size: medium;
-}
 /*efectos en las imagenes de la lista*/
 .zoom {
 /* Aumentamos la anchura y altura durante 2 segundos */
