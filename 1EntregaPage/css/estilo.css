@@ -55,9 +55,6 @@ form {
   margin: 0 auto;
   width: 400px;
 padding: 1em;
-  /*-- Para ver form redondeado con color--*/
-  /*border: 1px solid blue;*/
-  /*border-radius: 40px;*/
 }
 
 div + div {
@@ -120,11 +117,7 @@ button {
 }
 /*--texto del nosotros--*/
 .pnos{
-  /*font-family: 'Permanent Marker', cursive;*/
   font-family: 'Acme', sans-serif;
-  /*border-radius: 15px;
-  border-style: groove;
-  border-color: burlywood;*/
 }
 /*--foto de la descripcion de la noticia--*/
 .detalle .izq{
@@ -195,14 +188,10 @@ h3{
 
 h1{
   float: none;
-  /*font-family: 'Titan One', cursive;*/
   font-family: 'Audiowide', cursive;
   font-size: xx-large;
-  /*color: greenyellow;*/
 }
-/*h1:hover{
-  color: red;
-}*/
+
 .texto {
   font-size:28px;
   font-family:'Audiowide', cursive;
