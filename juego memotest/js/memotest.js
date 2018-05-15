@@ -11,7 +11,6 @@ const c_long_tab=8//indica la longitud total del tablero
 
 function comenzar(){//cargo todo el arreglo con las probabilidades de salir algunos de los valores
     
-    //usado = [];
     cant_aciertos = 0;
     for (let indice_tab = 0; indice_tab < c_long_tab; indice_tab++) {//recorro el arrreglo tablero
         let marca = '';
