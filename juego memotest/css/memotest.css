@@ -51,7 +51,9 @@ body{
 	text-shadow: 0px 0px 4px #0fff17;
 	filter: dropshadow(color=#0fff17, offx=0, offy=0);     
 }
-
+#eleccion{
+	display: none;
+}
 
 .footer{
   margin-left: 35%;

@@ -9,46 +9,51 @@
 </head>
 <body>
     <header>
-        <div class="eleccion">
-            <select class="form-control" id="clase-apuesta">
-                <option value="selecciona">Selecciona la cantidad de casilleros</option>
-                <option value="8c">8 casilleros</option>
-                <option value="5c">5 casilleros</option>
+        <div id="eleccion">
+            <select class="form-control" id="elegir" onchange="jugar()">
+                <option value="selecciona">Seleccione el casillero</option>
+                <option value="8c">0</option>
+                <option value="8c">1</option>
+                <option value="8c">2</option>
+                <option value="8c">3</option>
+                <option value="8c">4</option>
+                <option value="8c">5</option>
+                <option value="8c">6</option>
+                <option value="8c">7</option>
                 </select>
             </div>
             <div>
-                <input type="button" class="" id="jugar" name="" value="JUGAR">
+                <input type="button" class="btn" onclick="comenzar()" value="COMENZAR">
             </div>
                 
         </header
     
-    <div id="bg">
-    </div>
+    <div id="bg"></div>
         <div id="memotest">
         <table border="0">
             <tr>
-                <td><img src="images/bg.png" id="0" onclick='imgcheck(this)' /></td>
-                <td><img src="images/bg.png" id="1" onclick='imgcheck(this)' /></td>
-                <td><img src="images/bg.png" id="2" onclick='imgcheck(this)' /></td>
-                <td><img src="images/bg.png" id="3" onclick='imgcheck(this)' /></td>
+                <td><img src="images/bg.png" id="0" /></td>
+                <td><img src="images/bg.png" id="1" /></td>
+                <td><img src="images/bg.png" id="2" /></td>
+                <td><img src="images/bg.png" id="3" /></td>
             </tr>
             <tr>
-                <td><img src="images/bg.png" id="4" onclick='imgcheck(this)' /></td>
-                <td><img src="images/bg.png" id="5" onclick='imgcheck(this)' /></td>
-                <td><img src="images/bg.png" id="6" onclick='imgcheck(this)' /></td>
-                <td><img src="images/bg.png" id="7" onclick='imgcheck(this)' /></td>
+                <td><img src="images/bg.png" id="4" /></td>
+                <td><img src="images/bg.png" id="5" /></td>
+                <td><img src="images/bg.png" id="6" /></td>
+                <td><img src="images/bg.png" id="7" /></td>
             </tr>
             </table>
             <div id="anotador">
-                <div id="Aciertos">Aciertos (X):
-                    <span id="A1">0</span>
+                <div id="Aciertos"><span><u>Aciertos</u> (X):</span>
+                    <output id="A">0</output>
                 </div>
-                <div id="No acertados">No acertados (Y o L):
-                    <span id="A2">0</span>
+                <div id="Errores"><span><u>Errores</u> (Y):</span>
+                    <output id="E">0</output>
                 </div>
             </div>
         </div>
-<!--<script src="js/memotest.js"></script>-->
+<script src="js/memotest.js"></script>
 </body>
 <footer class="footer">
         <b>&copy 2018 juanma mendonça</b>
