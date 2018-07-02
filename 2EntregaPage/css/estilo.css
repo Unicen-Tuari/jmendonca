@@ -1,0 +1,149 @@
+body{
+  background-image:url('../images/fondo.png');
+  background-repeat:round;
+}
+.logo{
+  float: left;
+  width: 40%;/*adapta el tamaño del div por porcentaje de pantalla segun sea el ancho de la pantalla ocupa el 40 por ciento*/
+}
+.imglogo{
+  width:300px;
+  height:150px;
+}
+
+#menu li a:hover {
+    color: #F7E42C;
+}
+
+/*--texto del nosotros--*/
+.pnos{
+  font-family: 'Acme', sans-serif;
+}
+/*--foto de la descripcion de la noticia--*/
+.detalle .izq{
+  height: auto;
+}
+
+.izq .head-izq {
+  width: 100%;
+}
+
+.izq .head-izq img{
+  float: right;
+}
+/*--tabla de noticia--*/
+.der{
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.der table {     font-family: comic sans,sans-serif;
+    font-size: 12px;    margin: 5px;     width: 100%; text-align: left;    border-collapse: collapse; }
+
+.der th {     font-size: 13px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
+    border-top: 4px solid #aabcfe;    border-bottom: 1px solid #fff; color: #039; }
+
+.der td {    padding: 8px;     background: #e8edff;     border-bottom: 1px solid #fff;
+    color: #669;    border-top: 1px solid transparent; }
+
+.der tr:hover td { background: #d0dafd; color: #339; }
+
+/*--posicion de la imagen de nosotros*/
+.centerimg{
+  width: 30%;
+  height: 40%;
+  margin-left: 35%;
+  margin-right: 35%;
+  float: center;
+}
+/*listado de noticias de la home*/
+.listhome p{
+  font-family: 'Permanent Marker', cursive;
+  width: auto;
+  height: auto;
+}
+h3{
+  float: none ;
+  text-align: center;
+  margin-top:50px;
+  font-family: 'Titan One', cursive;
+  font-size: large;
+}
+
+h1{
+  float: none;
+  font-family: 'Audiowide', cursive;
+  font-size: xx-large;
+}
+
+h4{
+  font-family: 'Noticia Text', serif;
+  font-size: medium;
+}
+
+/*---titulo que parpadea---*/
+.texto {
+  font-size:28px;
+  font-family:'Audiowide', cursive;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+.parpadea {
+
+  animation-name: parpadeo;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{
+   0% { color: greenyellow;}
+  50% { color: black; }
+   100% { color: greenyellow; }
+}
+
+@-webkit-keyframes parpadeo {
+  0% { color: greenyellow; }
+  50% { color: black; }
+   100% { color: greenyellow; }
+}
+
+@keyframes parpadeo {
+   0% { color: greenyellow; }
+  50% { color: black; }
+   100% { color: greenyellow; }
+}
+
+/*efectos en las imagenes de la lista*/
+.zoom {
+/* Aumentamos la anchura y altura durante 2 segundos */
+      transition: width 2s, height 2s, transform 2s;
+      -moz-transition: width 2s, height 2s, -moz-transform 2s;
+      -webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+      -o-transition: width 2s, height 2s,-o-transform 2s;
+}
+
+.zoom:hover{
+        /* tranformamos el elemento al pasar el mouse por encima al doble de
+           su tamaño con scale(2). */
+        transform : scale(2);
+        -moz-transform : scale(2);      /* Firefox */
+        -webkit-transform : scale(2);   /* Chrome - Safari */
+        -o-transform : scale(2);        /* Opera */
+    }
+
+.userlist{
+  position: relative;
+  border: 35%;
+  border-radius: 10%;
+  border-style: groove;
+  border-color: blue;
+  float: right;
+}

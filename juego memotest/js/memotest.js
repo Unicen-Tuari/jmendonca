@@ -1,3 +1,4 @@
+"use strict";
 /*---Variables---*/
 
 let usado= [];//arreglo que guarda las cartas que ya salieron
@@ -33,7 +34,7 @@ function comenzar(){//cargo todo el arreglo con las probabilidades de salir algu
     }
     if (tablero[0] == '') {//lo que hace es que si comienza vacio comience de vuelta hasta que tenga una marca(segun item opcional)
         comenzar();
-
+//cambiar esto y pasarlo a las probabilidades 
     }
     else{
 
