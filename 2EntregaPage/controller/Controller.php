@@ -20,20 +20,20 @@ class Controller {
 
   function mostrarHome($params = [])
   {
-    $this->HomeView->mostrarHome($home);
+    $this->HomeView->mostrarHome();
   }
 
 function mostrarNosotros($params = [])
   {
-    $this->NosotrosView->mostrarNosotros($nosotros);
+    $this->NosotrosView->mostrarNosotros();
   }
 
   function mostrarNoticia($params = [])
   {
-    $this->NoticiaView->mostrarNoticia($noticia);
+    $this->NoticiaView->mostrarNoticia();
   }
 
   function mostrarContacto($params = [])
   {
-    $this->ContactoView->mostrarContacto($contacto);
+    $this->ContactoView->mostrarContacto();
   }
