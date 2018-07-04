@@ -26,7 +26,7 @@ class NoticiaModel {
 
   function obtenerNoticia($id_noticia)
   {
-    $sentencia = $this->db->prepare( "SELECT * from noticia n, categoria c WHERE c.id_categoria=n.Categoria_id_categoria AND id_noticia='$id_noticia'");
+    $sentencia = $this->db->prepare( "SELECT n.id_noticia,n.titulo,c.nombre,n.descripcion,n.publicada from noticia n, categoria c WHERE c.id_categoria=n.Categoria_id_categoria AND id_noticia='$id_noticia'");
     $sentencia->execute([$id_noticia]);
     return $sentencia->fetch();
   }

@@ -37,7 +37,7 @@ class Controller {
 
 function mostrarNosotros($params = [])
   {
-    $this->NosotrosView->mostrarNosotros($nosotros);
+    $this->NosotrosView->mostrarNosotros();
   }
 
   function mostrarNoticia($params = [])
@@ -47,7 +47,7 @@ function mostrarNosotros($params = [])
 
   function mostrarContacto($params = [])
   {
-    $this->ContactoView->mostrarContacto($contacto);
+    $this->ContactoView->mostrarContacto();
   }
 }
 ?>
