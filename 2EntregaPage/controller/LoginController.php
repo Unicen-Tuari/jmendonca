@@ -4,17 +4,18 @@ require_once "./view/LoginView.php";
 
 class LoginController {
 
-  private $usuarioModel;
+  private $usuariosModel;
   private $loginView;
 
   function __construct(){
-    $this->UsuarioModel = new UsuarioModel();
-    $this->LoginView = new LoginView();
+    $this->usuariosModel = new UsuariosModel();
+    $this->loginView = new LoginView();
   }
 
   function login($params = [])
   {
-    $this->LoginView->mostrarLogin();
+    $this->loginView->mostrarLogin();
+
   }
 
   function logout($params = [])
@@ -26,16 +27,20 @@ class LoginController {
 
   function validarLogin($params = [])
   {
-    $usuario = $this->UsuarioModel->obtenerUsuario($_POST['email']);
-    if(password_verify($_POST['password'], $usuario['password'])){
+    $usuario = $this->usuariosModel->obtenerUsuario($_POST['email']);
+    $pass=$_POST['contrasenia'];
+    $pass1=$usuario['contrasenia'];
+
+    //if(md5($_POST['contrasenia']) == $usuario['pass']){
       session_start();
-      $_SESSION['email'] = $_POST['email'];
+
+      $_SESSION['usuario'] = $_POST['usuario'];
       $_SESSION['ultima_conexion'] = time();
       PageHelpers::homePage();
-    }
+    /*}
     else {
       PageHelpers::loginPage();
-    }
+    }*/
   }
 }
  ?>

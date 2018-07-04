@@ -1,7 +1,7 @@
 <?php
 require_once "./controller/SecureController.php";
 require_once "./model/CategoriaModel.php";
-require_once "./view/categoriaView.php";
+require_once "./view/CategoriaView.php";
 
 class CategoriaController extends SecureController{
 
@@ -14,53 +14,44 @@ class CategoriaController extends SecureController{
     $this->CategoriaView = new CategoriaView();
   }
 
-  function mostrarCategorias($params = [])
+  function mostrarAllCategorias()
   {
-    $categoria = $this->CategoriaModel->obtenerCategorias();
-    $this->CategoriaView->mostrarCategorias($categoria);
+    $categorias = $this->CategoriaModel->obtenerAllCategorias();
+    $this->CategoriaView->mostrarAllCategorias($categorias);
   }
 
-  function crearCategoria($params = [])
+  function crearCategoria()//muestra el formulario
   {
-    $this->CategoriaView->mostrarVistaCrearCategoria();
+    $this->CategoriaView->mostrarCrearCategoria();
   }
+
 
   function guardarCategoria($params = [])
   {
-    $categoria = [
-      'id_categoria' => $_POST['id_categoria'],
-      'nombre' => $_POST['nombre'],
-      'descripcion' => $_POST['descripcion']
+    $nombre=$_POST['nombre'];
+    $descripcion=$_POST['descripcion'];
 
-    ];
-    $this->CategoriaModel->insertarCategoria($categoria);
-    PageHelpers::homePage();
+    $this->CategoriaModel->guardarCategoria($nombre,$descripcion);
+    PageHelpers::allCategorias();
   }
 
   function borrarCategoria($params = [])
   {
     $this->CategoriaModel->deleteCategoria($params[0]);
-    PageHelpers::homePage();
+    PageHelpers::allCategorias();
   }
 
-  function finalizaCategoria($params = [])
+  function activarCategoria($params = [])
   {
-    $this->CategoriaModel->finalizarCategoria($params[0]);
-    PageHelpers::homePage();
+    $this->CategoriaModel->activaCategoria($params[0]);
+    PageHelpers::allCategorias();
   }
 
-  function mostrarDetalle($params = [])
+  function desactivarCategoria($params = [])
   {
-    $categoria = $this->CategoriaModel->obtenerCategoria($params[0]);
-
-    if ($categoria['finalizada'] == 1)
-      $estado = "Esta Finalizada";
-    else
-      $estado = "NO Esta Finalizada";
-
-    $this->CategoriaView->mostrarDetalle($categoria, $estado);
+    $this->CategoriaModel->desactivaCategoria($params[0]);
+    PageHelpers::allCategorias();
   }
-
 
 }
  ?>

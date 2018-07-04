@@ -10,39 +10,38 @@ class CategoriaModel {
             , 'root', '');
   }
 
-  function obtenerCategoria()
+  function obtenerAllCategorias()
   {
-    $sentencia = $this->db->prepare( "SELECT * from categoria");
+    $sentencia = $this->db->prepare( "SELECT * FROM categoria");
     $sentencia->execute();
     return $sentencia->fetchAll();
   }
 
-  function obtenerCategoria($id_categoria)
-  {
-    $sentencia = $this->db->prepare( "SELECT * from categoria where id=?");
-    $sentencia->execute([$id_categoria]);
-    return $sentencia->fetch();
-  }
-
-  function insertarCategoria($categoria)
+  function guardarCategoria($nombre,$descripcion)
   {
     $this->db->beginTransaction();
-    $sentencia = $this->db->prepare("INSERT INTO categoria (id_categoria, nombre, descripcion) VALUES (?,?,?)");
-    $sentencia->execute([$categoria['id_categoria'], $categoria['nombre'], $categoria['descripcion']]);
+    $sentencia = $this->db->prepare("INSERT INTO categoria (nombre, descripcion) VALUES ('$nombre','$descripcion')");
+    $sentencia->execute(array($nombre,$descripcion));
     $this->db->commit();
     return $this->db->lastInsertId();
   }
 
   function deleteCategoria($id_categoria)
   {
-    $sentencia = $this->db->prepare("DELETE from categoria where id=?");
-    $sentencia->execute([$id_categoria]);
+    $sentencia = $this->db->prepare("DELETE FROM categoria where id_categoria='$id_categoria'");
+    $sentencia->execute(array($id_categoria));
   }
 
-  function finalizarCategoria($id_categoria)
+  function activaCategoria($id_categoria)
   {
-    $sentencia = $this->db->prepare("UPDATE categoria SET finalizada=1 where id=?");
-    $sentencia->execute([$id_categoria]);
+    $sentencia = $this->db->prepare("UPDATE categoria SET activa=0 where id_categoria='$id_categoria'");
+    $sentencia->execute(array($id_categoria));
+  }
+
+  function desactivaCategoria($id_categoria)
+  {
+    $sentencia = $this->db->prepare("UPDATE categoria SET activa=1 where id_categoria='$id_categoria'");
+    $sentencia->execute(array($id_categoria));
   }
 }
 ?>

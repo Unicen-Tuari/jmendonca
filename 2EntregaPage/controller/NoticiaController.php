@@ -1,67 +1,68 @@
 <?php
 require_once "./controller/SecureController.php";
 require_once "./model/NoticiaModel.php";
-require_once "./view/NoticiasView.php";
+require_once "./view/NoticiaView.php";
+
+require_once "./model/CategoriaModel.php";
 
 class NoticiaController extends SecureController{
 
   private $NoticiaModel;
-  private $NoticiasView;
+  private $NoticiaView;
+  private $CategoriaModel;
 
   function __construct(){
 
     $this->NoticiaModel = new NoticiaModel();
-    $this->NoticiasView = new NoticiasView();
+    $this->NoticiaView = new NoticiaView();
+    $this->CategoriaModel = new CategoriaModel();
   }
 
-  function mostrarNoticias($params = [])
+  function mostrarNoticia($params = [])
   {
-    $tareas = $this->NoticiaModel->obtenerNoticias();
-    $this->NoticiasView->mostrarNoticias($noticia);
+    $noticia = $this->NoticiaModel->obtenerNoticia($params[0]);
+    $this->NoticiaView->mostrarNoticia($noticia);
   }
 
-  function crearNoticia($params = [])
+  function mostrarAllNoticias()
   {
-    $this->NoticiasView->mostrarVistaCrearNoticia();
+    $noticias = $this->NoticiaModel->obtenerNoticias();
+    $this->NoticiaView->mostrarNoticias($noticias);
+  }
+
+
+  function crearNoticia()
+  {
+    $categorias = $this->CategoriaModel->obtenerAllCategorias();
+    $this->NoticiaView->mostrarVistaCrearNoticia($categorias);
   }
 
   function guardarNoticia($params = [])
   {
-    $noticia = [
-      'id_noticia' => $_POST['id_noticia'],
-      'titulo' => $_POST['titulo'],
-      'descripcion' => $_POST['descripcion'],
-      'Categoria_id_categoria' => $_POST['Categoria_id_categoria']
-
-    ];
-    $this->NoticiaModel->insertarNoticia($noticia);
-    PageHelpers::homePage();
+    $titulo=$_POST['titulo'];
+    $descripcion=$_POST['descripcion'];
+    $cat=$_POST['Categoria_id_categoria'];
+    
+    $this->NoticiaModel->guardarNoticia($titulo,$descripcion,$cat);
+    PageHelpers::allNoticias();
   }
 
   function borrarNoticia($params = [])
   {
     $this->NoticiaModel->deleteNoticia($params[0]);
-    PageHelpers::homePage();
+    PageHelpers::allNoticias();
   }
 
-  function finalizaNoticia($params = [])
+  function publicarNoticia($params = []) //falta terminar
   {
-    $this->NoticiaModel->finalizarNoticia($params[0]);
-    PageHelpers::homePage();
+    $this->NoticiaModel->publicarNoticia($params[0]);
+    PageHelpers::allNoticias();
   }
-
-  function mostrarDetalle($params = [])
+  function noPublicarNoticia($params = []) //falta terminar
   {
-    $noticia = $this->NoticiaModel->obtenerNoticia($params[0]);
-
-    if ($noticia['finalizada'] == 1)
-      $estado = "Esta Finalizada";
-    else
-      $estado = "NO Esta Finalizada";
-
-    $this->NoticiasView->mostrarDetalle($noticia, $estado);
+    $this->NoticiaModel->noPublicarNoticia($params[0]);
+    PageHelpers::allNoticias();
   }
-
 
 }
  ?>

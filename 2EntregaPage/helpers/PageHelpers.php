@@ -4,7 +4,17 @@ class PageHelpers
 {
   public static function homePage()
   {
-    header("Location: ".BASEURL."ver");
+    header("Location: ".BASEURL."verHome");
+    die();
+  }
+  public static function allNoticias()
+  {
+    header("Location: ".BASEURL."verAllNoticias");
+    die();
+  }
+  public static function allCategorias()
+  {
+    header("Location: ".BASEURL."verAllCategorias");
     die();
   }
 

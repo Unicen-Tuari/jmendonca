@@ -8,22 +8,15 @@ class CategoriaView {
     $this->smarty = new Smarty;
   }
 
-  function mostrarCategoria($categoria){
-     $this->smarty->assign("categoria", $categoria);
-     $this->smarty->display("mostrarcategorias.tpl");
+  function mostrarAllCategorias($categorias){
+     $this->smarty->assign("categorias", $categorias);
+     $this->smarty->display("mostrarCategorias.tpl");
   }
 
-  function mostrarVistaCrearCategoria($params = [])
+  function mostrarCrearCategoria()
   {
     $this->smarty->display("crearCategoria.tpl");
   }
 
-  function mostrarDetalle($categoria, $estado){
-    $this->smarty->assign('id_categoria', $categoria['id_categoria'] );
-    $this->smarty->assign('nombre', $categoria['nombre'] );
-    $this->smarty->assign('descripcion',$categoria['descripcion'] );
-    $this->smarty->assign('estado',$estado );
-    $this->smarty->display("mostrarDetalleCategoria.tpl");
-  }
 }
  ?>

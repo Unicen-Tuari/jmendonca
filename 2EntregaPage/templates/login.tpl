@@ -1,20 +1,23 @@
-{include file="headerLogin.tpl"}
+{include file="header.tpl"}
 <div class="container">
-
-        <form class="form-signin">
-            <h2 class="form-signin-heading">Acceder</h2>
-            <label for="inputEmail" class="sr-only">Correo electrónico</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> Recordarme
-                </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</button>
-        </form>
-
+  <div class="col-md-12">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+  <form class="form-signin" method="post" action="login">
+    <h1 class="form-signin-heading">Ingrese sus datos</h1>
+    <label for="email" class="sr-only">Usuario</label>
+    <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Email address" required autofocus><br>
+    <label for="password" class="sr-only">Contraseña</label>
+    <input type="password" id="contrasenia" name="contrasenia" class="form-control" placeholder="Password" required>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"> Recordarme
+      </label>
     </div>
-    <!-- /container -->
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+  </form>
+</div>
+  <div class="col-md-4"></div>
+</div>
+</div> <!-- /container -->
 {include file="footer.tpl"}

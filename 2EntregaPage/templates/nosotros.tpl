@@ -1,12 +1,14 @@
-{include file="headerNosotros.tpl"}
-section>
+{include file="header.tpl"}
+<section class="text-center">
     <h1><b><u>Acerca de nosotros</u></b></h1>
-    <article>
-        <div>
-        <img class="centerimg"src="images/logo2.jpg" alt="">
+    <hr>
+    <article class="col-md-12">
+        <div class="col-md-4 text-center">
+            <br>
+        <img class="centerimg" src="images/logo2.jpg" alt="">
       </div>
 
-        <div class="pnos">
+        <div class="pnos col-md-6">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet tellus,
             Etiam sed metus enim. Donec euismod urna at sapien auctor, sed accumsan
             Aliquam erat volutpat. Aliquam eget porta nisi, placerat tincidunt leo.
@@ -22,14 +24,8 @@ section>
             id, ultrices eros. Nullam est orci, iaculis sit amet arcu vitae,
             Vivamus vel risus in nibh facilisis rhoncus quis vel turpis.</p>
         </div>
+        <div class="col-md-2"></div>
     </article>
 </section>
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
-</script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+
 {include file="footer.tpl"}

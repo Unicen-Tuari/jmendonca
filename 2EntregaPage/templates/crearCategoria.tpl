@@ -1,11 +1,20 @@
-{include file="headerlogin.tpl"}
-<form action="guardar" method="post">
-<label for="id_categoria">id_categoria</label>
-  <input type="text" name="id_categoria" value="">
-  <label for="nombre">nombre</label>
-  <input type="text" name="nombre" value="">
-  <label for="descripcion">Descripcion</label>
-  <input type="text" name="descripcion" value="">
-  <button type="submit" name="button">Crear Categoria</button>
-</form>
+{include file="header.tpl"}
+<div class="col-md-12">
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<form action="guardarCategoria" method="post">
+	<h1>Nueva Categoría</h1>
+	  <label for="titulo">Nombre</label>
+	  <input  class="form-control" type="text" name="nombre">
+	  <label for="descripcion">Descripcion</label>
+	  <textarea class="form-control" type="text" name="descripcion"></textarea>
+	  <br>
+	  <button type="submit" name="button" class="btn btn-block btn-success">Crear Categoría</button>
+	</form>
+</div>
+
+
+<div class="col-md-4"></div>
+
 {include file="footer.tpl"}

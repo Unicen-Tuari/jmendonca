@@ -10,7 +10,8 @@ function __construct()
   $this->smarty = new Smarty;
 }
 
-  function mostrarHome(){
+  function mostrarHome($noticias){
+  	$this->smarty->assign('noticias',$noticias);
     $this->smarty->display('home.tpl');
   }
   
